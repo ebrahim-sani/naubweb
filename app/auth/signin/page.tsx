@@ -30,15 +30,17 @@ const page = () => {
          <div className="md:flex-[0.6] min-h-screen bg-[url(/assets/naub-img-2.jpg)] bg-cover bg-no-repeat"></div>
          <div className="md:flex-[0.4] w-full">
             <div className="flex flex-col items-center justify-center min-h-screen w-full">
-               <div className="flex flex-col items-center sm:w-[80%] border border-gray-300 rounded-lg">
+               <div className="flex flex-col items-center sm:w-[60%] border border-gray-300 rounded-lg">
                   <div className="flex flex-col items-center text-center lg:text-left">
-                     <Image
-                        src="/assets/naub.png"
-                        alt="naub-logo"
-                        width={200}
-                        height={200}
-                        loading="eager"
-                     />
+                     <div className="w-40 h-40">
+                        <Image
+                           src="/assets/naub.png"
+                           alt="naub-logo"
+                           width={200}
+                           height={200}
+                           loading="eager"
+                        />
+                     </div>
                      <p className="px-2 py-1 text-secondary italic text-xl font-bold">
                         Sign-In with your ID Number
                      </p>

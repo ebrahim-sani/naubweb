@@ -29,7 +29,7 @@ const page = () => {
 
    return (
       <main className="flex w-full h-screen">
-         <div className="flex flex-col items-center justify-start w-full py-2 sm:py-6 px-1 sm:px-8 gap-1 sm:gap-6 overflow-y-auto">
+         <div className="flex flex-col items-center justify-start w-full py-2 px-1 sm:px-8 gap-1 sm:gap-3 overflow-y-auto">
             {/* header */}
             <DashboardHeader />
 
@@ -37,7 +37,7 @@ const page = () => {
             <div className="flex flex-col items-start w-full">
                <div className="grid grid-cols-1 items-stretch sm:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
                   <div className="col-span-2 p-2 w-full">
-                     <div className="flex max-sm:items-center flex-col sm:flex-row bg-white shadow-md rounded-lg items-start justify-start gap-6 p-2 sm:p-4">
+                     <div className="flex max-sm:items-center flex-col sm:flex-row bg-white shadow-sm rounded-lg items-start justify-start gap-6 p-2 sm:p-4">
                         <div className="relative flex items-center justify-center p-[2px] rounded-full bg-secondary">
                            <Image
                               src="/assets/pr.png"
@@ -83,20 +83,43 @@ const page = () => {
                      </div>
                   </div>
                   <div className="col-span-2 sm:col-span-1 p-2 w-full">
-                     <div className="flex w-full flex-col h-full items-start p-2 bg-white rounded-lg shadow-md">
-                        <h3 className="text-gray-500 text-bold">
+                     <div className="flex w-full flex-col h-full items-start p-2 bg-white gap-1 rounded-lg shadow-sm">
+                        <h3 className="text-lg font-medium text-gray-600">
                            Current CGPA
                         </h3>
-                        <div className="flex w-full h-full items-center justify-center">
+                        <div className="p-[1px] rounded-full w-full bg-gray-200"></div>
+                        <div className="flex w-full flex-1 items-center justify-center">
                            <h1 className="text-gray-600 text-6xl font-bold mb-2">
                               0.00
                            </h1>
                         </div>
                      </div>
                   </div>
-                  <div className="col-span-2 sm:col-span-1 p-2 bg-slate-500 w-full"></div>
+                  <div className="col-span-2 sm:col-span-1 p-2 w-full">
+                     <div className="flex h-full w-full flex-col bg-white rounded-md p-2 gap-1 shadow-sm">
+                        <h2 className="text-xl font-medium text-gray-600">
+                           Events
+                        </h2>
+                        <div className="p-[1px] rounded-full w-full bg-gray-200"></div>
+                        <div className="flex items-center justify-center flex-1">
+                           <div className="flex flex-col items-center gap-3">
+                              <div className="h-20 w-20">
+                                 <Image
+                                    src="/assets/undraw_no_data.svg"
+                                    alt="no_data"
+                                    width={200}
+                                    height={200}
+                                 />
+                              </div>
+                              <p className="text-xs text-gray-500">
+                                 No events now!
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                   <div className="col-span-2 p-2 w-full">
-                     <div className="flex w-full flex-col bg-white rounded-md p-2 sm:p-4 gap-1">
+                     <div className="flex w-full flex-col bg-white rounded-md p-2 sm:p-4 gap-1 shadow-sm">
                         <h2 className="text-xl font-bold text-gray-600">
                            Basic Information
                         </h2>
@@ -152,9 +175,10 @@ const page = () => {
                   {/* courses-table */}
                   <div className="col-span-2 p-2 w-full">
                      <div className="flex flex-col items-start gap-3 rounded-md p-2 w-full h-[280px] bg-white">
-                        <p className="text-base text-gray-500">
+                        <p className="text-base font-medium text-gray-500">
                            Current Registered Courses
                         </p>
+                        <div className="p-[1px] rounded-full w-full bg-gray-200"></div>
                         <div className="flex overflow-x-auto overflow-y-auto w-full">
                            <table className="table">
                               <thead>

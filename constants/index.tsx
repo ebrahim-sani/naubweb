@@ -77,12 +77,12 @@ export const sidebarLinks = [
       icon: <HiOutlineDocumentText size={22} />,
    },
    {
-      path: "dashboard/",
+      path: "dashboard/documents",
       title: "Documents",
       icon: <HiOutlineDocument size={22} />,
    },
    {
-      path: "dashboard/",
+      path: "dashboard/settings",
       title: "Settings",
       icon: <FiSettings size={22} />,
    },
@@ -382,5 +382,38 @@ export const coursesReg = [
       courseStatus: "elective",
       preReq: "",
       department: "software",
+   },
+];
+
+export const results = [
+   {
+      semester: "Second Semester",
+      session: "2023/2024",
+      level: "300",
+   },
+   {
+      semester: "First Semester",
+      session: "2023/2024",
+      level: "300",
+   },
+   {
+      semester: "Second Semester",
+      session: "2023/2024",
+      level: "200",
+   },
+   {
+      semester: "First Semester",
+      session: "2023/2024",
+      level: "200",
+   },
+   {
+      semester: "Second Semester",
+      session: "2021/2022",
+      level: "100",
+   },
+   {
+      semester: "First Semester",
+      session: "2021/2022",
+      level: "100",
    },
 ];
