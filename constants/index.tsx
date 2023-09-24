@@ -417,3 +417,35 @@ export const results = [
       level: "100",
    },
 ];
+
+export const news = [
+   {
+      id: "1",
+      title: "Admission into IJMB programme 2023/2024 is out",
+      content:
+         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, omnis molestias debitis dicta dolor veritatis nemo neque? Adipisci illo ad facilis. Totam facilis rerum voluptate aperiam dolorem repellendus sit impedit iste quisquam hic possimus, unde quo quis ea eos harum.",
+      img: "/assets/naub-img-3.jpg",
+   },
+   {
+      id: "2",
+      title: "Admission into IJMB programme 2023/2024 is out",
+      content:
+         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, omnis molestias debitis dicta dolor veritatis nemo neque? Adipisci illo ad facilis. Totam facilis rerum voluptate aperiam dolorem repellendus sit impedit iste quisquam hic possimus, unde quo quis ea eos harum.",
+      img: "/assets/naub-img-4.jpg",
+   },
+   {
+      id: "3",
+      title: "Admission into IJMB programme 2023/2024 is out",
+      content:
+         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, omnis molestias debitis dicta dolor veritatis nemo neque? Adipisci illo ad facilis. Totam facilis rerum voluptate aperiam dolorem repellendus sit impedit iste quisquam hic possimus, unde quo quis ea eos harum.",
+
+      img: "/assets/naub-img-5.jpg",
+   },
+   {
+      id: "4",
+      title: "Admission into IJMB programme 2023/2024 is out",
+      content:
+         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, omnis molestias debitis dicta dolor veritatis nemo neque? Adipisci illo ad facilis. Totam facilis rerum voluptate aperiam dolorem repellendus sit impedit iste quisquam hic possimus, unde quo quis ea eos harum.",
+      img: "/assets/naub-img-6.jpg",
+   },
+];

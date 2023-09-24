@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { CustomButton, Navbar } from "./components";
 import { FaArrowRight } from "react-icons/fa";
-import { heroContents, vmissionCard } from "@/constants";
+import { heroContents, news, vmissionCard } from "@/constants";
+import { truncateText } from "@/utils/untilityFunctions";
 
 export default function Home() {
    return (
@@ -35,7 +36,7 @@ export default function Home() {
                      </div>
                   </div>
                </div>
-               <div className="sm:absolute sm:-bottom-14 bg-white flex items-center flex-col sm:flex-row gap-2 sm:gap-4 p-4 rounded-lg z-10 container shadow-lg">
+               <div className="sm:absolute sm:-bottom-14 bg-white flex items-center flex-col sm:flex-row gap-2 sm:gap-4 p-4 rounded-lg z-10 container shadow-md">
                   <div className="flex flex-col items-start gap-3">
                      <div className="flex flex-col items-center gap-[2px]">
                         <h3 className="text-gray-500 font-bold sm:text-lg">
@@ -58,7 +59,42 @@ export default function Home() {
                </div>
             </div>
          </div>
+
          {/* <LatestNews /> */}
+         <div className="flex flex-col items-center justify-center w-full p-2 sm:pt-20 gap-4 container min-h-screen">
+            <h2 className="text-xl text-gray-600 font-semibold">Latest News</h2>
+            <div className="flex flex-col items-center w-full gap-2">
+               <div className="flex justify-center carousel rounded-box w-full gap-2">
+                  {news?.map((news) => (
+                     <div
+                        key={news.id}
+                        className="carousel-item sm:w-1/5 bg-white shadow-md hover:scale-50 hover:cursor-pointer rounded-tr-md rounded-tl-md"
+                     >
+                        <div className="flex flex-col items-center w-full">
+                           <div className="flex w-full h-full">
+                              <Image
+                                 src={news?.img}
+                                 alt="news-photo"
+                                 width={200}
+                                 height={200}
+                                 className="w-full"
+                              />
+                           </div>
+                           <div className="flex flex-col items-start gap-2 p-2">
+                              <h2>{truncateText(news?.title, 40)}</h2>
+                              <p className="text-xm sm:text-sm text-gray-400">
+                                 {truncateText(news?.content, 80)}
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  ))}
+               </div>
+               <button className="btn btn-sm text-gray-200 bg-secondary border-none hover:bg-secHover">
+                  More
+               </button>
+            </div>
+         </div>
       </main>
    );
 }

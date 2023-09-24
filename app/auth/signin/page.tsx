@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { signIn } from "next-auth/react";
 
@@ -24,7 +24,9 @@ async function signin(data: any) {
    }
 }
 
-const page = () => {
+const Page = () => {
+   const [clicked, setClicked] = useState<boolean>(false);
+
    return (
       <main className="flex min-h-screen w-full items-center justify-between">
          <div className="md:flex-[0.6] min-h-screen bg-[url(/assets/naub-img-2.jpg)] bg-cover bg-no-repeat"></div>
@@ -84,8 +86,13 @@ const page = () => {
                               <button
                                  className="w-full bg-secondary hover:bg-secHover border border-secondary first-letter:font-epilogue font-semibold text-sm leading-[26px] btn rounded-3xl text-gray-200"
                                  type="submit"
+                                 onClick={() => setClicked(true)}
                               >
-                                 Login
+                                 {clicked ? (
+                                    <span className="loading loading-spinner"></span>
+                                 ) : (
+                                    "Login"
+                                 )}
                               </button>
                            </div>
                         </form>
@@ -98,4 +105,4 @@ const page = () => {
    );
 };
 
-export default page;
+export default Page;

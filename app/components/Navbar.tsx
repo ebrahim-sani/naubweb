@@ -13,7 +13,11 @@ import { useStore } from "@/states/store";
 const Navbar = () => {
    const [toggle, setToggle] = useState<boolean>(false);
    const [scrolled, setScrolled] = useState<boolean>(false);
-   let activePath: string = window.location.pathname;
+
+   let activePath: string;
+   if (typeof window !== undefined) {
+      activePath = window.location.pathname;
+   }
 
    useEffect(() => {
       const handleScroll = () => {
