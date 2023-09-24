@@ -1,3 +1,5 @@
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 import { PrismaClient } from "@prisma/client";
 
 export async function POST(req: Request) {
@@ -6,17 +8,22 @@ export async function POST(req: Request) {
    }
 
    const prisma = new PrismaClient();
-   const { student_id, selectedCourse, semester, level, currentSession } =
-      await req.json();
 
-   // console.log("Selected courses ->", selectedCourse);
+   const session = await getServerSession(authOptions);
+   /* @ts-ignore */
+   const studentId: string = session?.user?.id;
+   /* @ts-ignore */
+   const level: string = session?.user?.level;
+   // console.log(studentId, level);
+
+   const { selectedCourse, semester, currentSession } = await req.json();
 
    try {
       await prisma.registerCourse.create({
          data: {
             // Student: { connect: { id: student_id } },
-            studentId: student_id,
-            level: level,
+            studentId,
+            level,
             semester: semester,
             session: currentSession,
             courses: {

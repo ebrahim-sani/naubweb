@@ -14,7 +14,7 @@ const CourseRegHeader = () => {
          </h2>
          <button
             onClick={() => setIsToggle(true)}
-            className="btn font-epilogue font-semibold text-sm leading-[26px] border rounded-3xl text-gray-200 bg-secondary hover:bg-secHover border-secondary hover:border-secondary"
+            className="btn btn-md rounded-xl font-epilogue font-semibold text-sm leading-[26px] border text-gray-200 bg-secondary hover:bg-red-700 border-none"
          >
             <div className="flex items-center gap-2">
                <p>Register</p> <FaPlus />

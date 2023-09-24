@@ -1,4 +1,4 @@
-import { NewCourseRegModal, Sidebar } from "../components";
+import { MobileSideBar, NewCourseRegModal, Sidebar } from "../components";
 import "../globals.css";
 
 export const metadata = {
@@ -19,6 +19,7 @@ export default function RootLayout({
                   <Sidebar />
                   <div className="flex p-1 sm:p-2 w-full">{children}</div>
                   <NewCourseRegModal />
+                  <MobileSideBar />
                </div>
             </div>
          </main>

@@ -1,12 +1,8 @@
-import { BiBell } from "react-icons/bi";
-import { FiSettings } from "react-icons/fi";
-import { TbLogout } from "react-icons/tb";
-import { AiOutlineMenu } from "react-icons/ai";
-import { BiMenu } from "react-icons/bi";
 import Image from "next/image";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { courses, user_data } from "@/constants";
 import { truncateText } from "@/utils/untilityFunctions";
+import { DashboardHeader } from "../components";
 
 export const metadata = {
    title: "Dashboard | Student",
@@ -29,47 +25,19 @@ function CardData({ heading, info, styles }: DataProps) {
 }
 
 const page = () => {
-   const currentDate = new Date();
-   const options: Intl.DateTimeFormatOptions = {
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-   };
-   const dateTime = currentDate.toLocaleDateString("en-US", options);
    // const dayTime = currentDate.toLocaleTimeString();
 
    return (
       <main className="flex w-full h-screen">
-         <div className="flex flex-col items-center justify-start w-full py-3 sm:py-6 px-4 sm:px-8 gap-6 overflow-y-auto">
+         <div className="flex flex-col items-center justify-start w-full py-2 sm:py-6 px-1 sm:px-8 gap-1 sm:gap-6 overflow-y-auto">
             {/* header */}
-            <div className="flex items-center justify-between w-full">
-               <div className="pl-2 text-2xl font-bold">
-                  <BiMenu size={25} />
-               </div>
-               <div className="flex items-center gap-8">
-                  <div className="hidden md:flex items-center gap-4">
-                     <p>{dateTime.toString()}</p>
-                     {/* <p>{dayTime.toString()}</p> */}
-                  </div>
-                  <div className="flex items-center gap-5">
-                     <BiBell className="cursor-pointer" size={25} />
-                     <FiSettings
-                        className="hidden sm:inline cursor-pointer"
-                        size={25}
-                     />
-                     <TbLogout
-                        className="hidden sm:inline cursor-pointer"
-                        size={25}
-                     />
-                  </div>
-               </div>
-            </div>
+            <DashboardHeader />
 
             {/* main content */}
             <div className="flex flex-col items-start w-full">
-               <div className="grid grid-cols-1 items-stretch sm:grid-cols-3 lg:grid-cols-4 gap-6 w-full ">
+               <div className="grid grid-cols-1 items-stretch sm:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
                   <div className="col-span-2 p-2 w-full">
-                     <div className="flex flex-col sm:flex-row bg-white shadow-md rounded-lg items-start justify-start gap-6 p-2 sm:p-4">
+                     <div className="flex max-sm:items-center flex-col sm:flex-row bg-white shadow-md rounded-lg items-start justify-start gap-6 p-2 sm:p-4">
                         <div className="relative flex items-center justify-center p-[2px] rounded-full bg-secondary">
                            <Image
                               src="/assets/pr.png"
@@ -85,7 +53,7 @@ const page = () => {
                               />
                            </div>
                         </div>
-                        <div className="flex flex-col items-start gap-3">
+                        <div className="max-sm:w-full flex flex-col items-start gap-3">
                            <h3 className="text-gray-500 font-extrabold text-lg">{`${user_data?.firstName} ${user_data?.lastName} ${user_data?.otherName}`}</h3>
                            <div className="flex items-center gap-2">
                               <p className="text-gray-400">Matric Number:</p>
@@ -133,7 +101,7 @@ const page = () => {
                            Basic Information
                         </h2>
                         <div className="p-[1px] rounded-full w-full bg-gray-200"></div>
-                        <div className="grid grid-col-2 sm:grid-cols-3 items-center gap-2 gap-y-4 w-full">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 items-center gap-2 gap-y-4 w-full">
                            <CardData
                               heading="Date of Birth"
                               info={user_data.dateOfBirth}

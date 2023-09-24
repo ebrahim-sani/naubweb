@@ -7,11 +7,11 @@ export default function Home() {
    return (
       <main className="flex flex-col items-center justify-between w-full">
          <div className="flex relative flex-col bg-[url(/assets/naub-img-7.jpeg)] min-h-screen w-full bg-cover items-center after:absolute after:bg-gradient-to-r from-green-900 via-green-900 via-15% to-transparent after:inset-0">
-            <div className="container flex flex-col gap-24">
+            <div className="container flex flex-col gap-10 sm:gap-24">
                <Navbar />
                <div className="relative flex flex-col w-full z-10">
-                  <div className="flex flex-col items-start gap-4">
-                     <h2 className="font-epilouge text-6xl font-extrabold text-gray-200">
+                  <div className="flex flex-col items-start px-2 gap-4">
+                     <h2 className="font-epilouge text-5xl sm:text-6xl font-extrabold text-gray-200">
                         {heroContents.title}
                      </h2>
                      <p className="sm:w-4/6 font-epilouge text-xl font-normal leading-8 text-gray-300">
@@ -35,7 +35,7 @@ export default function Home() {
                      </div>
                   </div>
                </div>
-               <div className="absolute -bottom-14 bg-white sm:flex items-center gap-4 p-4 rounded-lg z-10 container shadow-lg">
+               <div className="sm:absolute sm:-bottom-14 bg-white flex items-center flex-col sm:flex-row gap-2 sm:gap-4 p-4 rounded-lg z-10 container shadow-lg">
                   <div className="flex flex-col items-start gap-3">
                      <div className="flex flex-col items-center gap-[2px]">
                         <h3 className="text-gray-500 font-bold sm:text-lg">
@@ -45,7 +45,6 @@ export default function Home() {
                      </div>
                      <p className="text-gray-400">{vmissionCard[0].desc}</p>
                   </div>
-                  {/* <div className="hidden sm:flex p-2 bg-secondary rounded-sm rotate-45"></div> */}
                   <div className="divider divider-horizontal text-gray-600"></div>
                   <div className="flex sm:pl-4 flex-col items-start gap-2">
                      <div className="flex flex-col items-center gap-[2px]">

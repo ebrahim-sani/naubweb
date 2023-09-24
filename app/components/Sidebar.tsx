@@ -4,15 +4,14 @@ import { sidebarLinks } from "@/constants";
 import { useStore } from "@/states/store";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 
 const Sidebar = () => {
-   // const [activePath, setActivePath] = useState<String>("dashboard");
    const { activePath, setActivePath } = useStore();
 
    return (
       <nav
-         className="hidden sm:flex w-60 
+         className="hidden relative sm:flex w-60 
          h-full rounded-r-xl border-r-4 border-secondary bg-white"
       >
          <div className="flex flex-col items-center w-full gap-14 p-4 pr-0">

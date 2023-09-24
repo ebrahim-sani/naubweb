@@ -1,7 +1,5 @@
-import { CourseRegHeader, NewCourseRegModal } from "@/app/components";
+import { CourseRegHeader, DashboardHeader } from "@/app/components";
 import { registeredCourses } from "@/constants";
-import { useStore } from "@/states/store";
-import { FaPlus } from "react-icons/fa";
 
 export const metadata = {
    title: "Dashboard | Student | Course Registration",
@@ -9,11 +7,9 @@ export const metadata = {
 };
 
 const page = () => {
-   // // eslint-disable-next-line react-hooks/rules-of-hooks
-   // const { isToggle } = useStore();
-   // console.log(isToggle);
    return (
-      <main className="flex w-full items-start py-4 px-1 sm:px-4 h-full">
+      <main className="flex flex-col gap-3 w-full items-start py-2 px-1 sm:px-4 h-full">
+         <DashboardHeader />
          <div className="relative flex flex-col gap-2 sm:gap-3 items-start w-full bg-white rounded-md">
             {/* header */}
             <CourseRegHeader />

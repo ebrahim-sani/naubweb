@@ -1,20 +1,27 @@
-import { CustomButton } from "@/app/components";
-import { signIn } from "next-auth/react";
-import Image from "next/image";
+"use client";
+
 import React from "react";
+import Image from "next/image";
+import { signIn } from "next-auth/react";
 
 async function signin(data: any) {
-   "use server";
    const matric_no = data.get("matric_no");
    const password = data.get("password");
    console.log({ matric_no, password });
 
-   await signIn("credentials", {
-      matricNumber: matric_no,
-      password: password,
-      redirect: true,
-      callbackUrl: "/dashboard",
-   });
+   try {
+      const res = await signIn("credentials", {
+         matricNumber: matric_no,
+         password: password,
+         redirect: true,
+         callbackUrl: "/dashboard",
+      });
+      if (res?.ok) {
+         console.log("login successfull");
+      }
+   } catch (err) {
+      console.log("Something went wrong!", err);
+   }
 }
 
 const page = () => {
@@ -72,10 +79,12 @@ const page = () => {
                               </label>
                            </div>
                            <div className="form-control mt-6 flex w-full">
-                              <CustomButton
-                                 title="Login"
-                                 styles="w-full bg-secondary hover:bg-secHover border border-secondary hover:border-secHover"
-                              />
+                              <button
+                                 className="w-full bg-secondary hover:bg-secHover border border-secondary first-letter:font-epilogue font-semibold text-sm leading-[26px] btn rounded-3xl text-gray-200"
+                                 type="submit"
+                              >
+                                 Login
+                              </button>
                            </div>
                         </form>
                      </div>

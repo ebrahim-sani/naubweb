@@ -3,7 +3,6 @@
 import React, { Suspense, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { coursesReg } from "@/constants";
-import { useSession } from "next-auth/react";
 import { useStore } from "@/states/store";
 import Loading from "../dashboard/loading";
 
@@ -47,27 +46,16 @@ const NewCourseRegModal = () => {
       return totalUnit;
    };
 
-   const { data: session } = useSession();
-   // console.log(session);
-
-   /* @ts-ignore */
-   const student_id: string = session?.user?.id;
-
-   /* @ts-ignore */
-   const level: string = session?.user?.level;
-
    const register = async () => {
       setLoading(true);
 
       try {
-         const res = await fetch("/api/register-course", {
+         const res = await fetch("/api/course-registration", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-               student_id,
                selectedCourse,
                semester,
-               level,
                currentSession,
             }),
          });

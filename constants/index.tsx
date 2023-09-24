@@ -5,27 +5,42 @@ import {
    HiOutlineDocumentText,
 } from "react-icons/hi";
 import { FiSettings } from "react-icons/fi";
+import { BiHomeAlt } from "react-icons/bi";
+import { GrStatusInfo } from "react-icons/gr";
+import { LuSchool2 } from "react-icons/lu";
+import { LiaSchoolSolid } from "react-icons/lia";
+import { CgWebsite } from "react-icons/cg";
 
 export const navLinks = [
    {
       id: "home",
       title: "Home",
+      icon: <BiHomeAlt size={24} />,
+      path: "/",
    },
    {
       id: "about",
       title: "About",
+      icon: <GrStatusInfo size={24} />,
+      path: "/about",
    },
    {
       id: "faculties",
       title: "Faculties",
+      icon: <LuSchool2 size={24} />,
+      path: "/faculties",
    },
    {
       id: "departments",
       title: "Departments",
+      icon: <LiaSchoolSolid size={24} />,
+      path: "/departments",
    },
    {
       id: "portals",
       title: "Portals",
+      icon: <CgWebsite size={24} />,
+      path: "/portals",
    },
 ];
 

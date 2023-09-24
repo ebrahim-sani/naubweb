@@ -6,11 +6,14 @@ import Link from "next/link";
 import { navLinks } from "@/constants";
 import { CustomButton } from ".";
 import { BiMenu } from "react-icons/bi";
+import { FaTimes } from "react-icons/fa";
+import { TbLogout } from "react-icons/tb";
+import { useStore } from "@/states/store";
 
 const Navbar = () => {
-   const [active, setActive] = useState<string>("");
    const [toggle, setToggle] = useState<boolean>(false);
    const [scrolled, setScrolled] = useState<boolean>(false);
+   let activePath: string = window.location.pathname;
 
    useEffect(() => {
       const handleScroll = () => {
@@ -35,7 +38,6 @@ const Navbar = () => {
                   href="/"
                   className="flex items-center gap-2"
                   onClick={() => {
-                     setActive("");
                      window.scrollTo(0, 0);
                   }}
                >
@@ -70,7 +72,7 @@ const Navbar = () => {
                      <li
                         key={nav.id}
                         className="text-gray-300 hover:text-secondary hover:underline text-lg font-medium cursor-pointer"
-                        onClick={() => setActive(nav.title)}
+                        // onClick={() => setActive(nav.title)}
                      >
                         <Link href={`#${nav.id}`}>{nav.title}</Link>
                      </li>
@@ -102,13 +104,70 @@ const Navbar = () => {
 
             {/* mobile */}
             {toggle && (
-               <nav className="flex w-full bg-black bg-opacity-80">
-                  <div className="absolute h-screen z-40 right-0 top-0 bg-gray-100 rounded-l-md w-[90%]">
-                     <div className="">
-                        <div className="flex flex-col items-start p-2"></div>
+               <div className="fixed h-screen w-full bg-black bg-opacity-30 right-0 top-0 bottom-0 z-50">
+                  <div className="h-full w-[80%] bg-gray-100 rounded-l-lg">
+                     <div className="flex flex-col gap-16 items-start p-3 w-full h-full">
+                        <div className="flex items-center justify-between w-full">
+                           <div className="h-20 w-20">
+                              <Image
+                                 src="/assets/naub.png"
+                                 alt="logo"
+                                 width={200}
+                                 height={200}
+                              />
+                           </div>
+                           <button
+                              onClick={() => setToggle(false)}
+                              className="btn btn-md btn-circle bg-slate-100"
+                           >
+                              <FaTimes size={28} className="text-secondary" />
+                           </button>
+                        </div>
+                        <div className="flex flex-1 items-start gap-1 w-full">
+                           <div className="flex flex-col items-start gap-12 overflow-y-auto overflow-x-hidden w-full">
+                              <ul className="flex flex-col items-start justify-center w-full gap-4 list-none">
+                                 {navLinks.map((link, i) => (
+                                    <Link
+                                       key={i}
+                                       href="/"
+                                       onClick={() => setToggle(false)}
+                                       className={`${
+                                          activePath == link?.path
+                                             ? "bg-secondary text-gray-200"
+                                             : "text-gray-500 hover:scale-105 transition duration-150 ease-in-out hover:text-secHover"
+                                       } flex w-full items-center justify-center p-2 cursor-pointer text-sm font-medium py-2 px-2 rounded-md"`}
+                                    >
+                                       <li className="w-full flex">
+                                          <span className="flex items-center w-full gap-2">
+                                             <div className="">
+                                                {link?.icon}
+                                             </div>
+                                             <h2 className="text-base">
+                                                {link?.title}
+                                             </h2>
+                                          </span>
+                                       </li>
+                                    </Link>
+                                 ))}
+                              </ul>
+
+                              <Link href="/auth/signin">
+                                 <button
+                                    className="btn btn-sm bg-slate-200 border-slate-300 hover:bg-slate-300"
+                                    type="button"
+                                 >
+                                    Signin
+                                    <TbLogout
+                                       className="text-gray-600 cursor-pointer"
+                                       size={25}
+                                    />
+                                 </button>
+                              </Link>
+                           </div>
+                        </div>
                      </div>
                   </div>
-               </nav>
+               </div>
             )}
          </div>
       </nav>
